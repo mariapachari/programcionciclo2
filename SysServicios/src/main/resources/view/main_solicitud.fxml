@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="miContenedor" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysservicios.controller.SolicitudController">
+   <children>
+      <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <Label text="Padrón unificado de servicios públicos" textFill="#1f3397">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label text="Filtrar:" />
+                  <TextField fx:id="txtFiltroDato" prefWidth="220.0" promptText="Nombre, domicilio, servicio o estado" />
+               </children>
+            </HBox>
+            <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefWidth="340.0" spacing="12.0">
+                     <children>
+                        <GridPane hgap="8.0" vgap="8.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" minWidth="90.0" />
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="220.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Registro de solicitud" GridPane.columnSpan="2">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Solicitante" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtNombreSolicitante" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Domicilio" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtDomicilio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Tipo de servicio" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="cbxTipoServicio" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Estado" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="cbxEstadoTramite" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#validarFormulario" styleClass="btn, btn-success" text="Guardar" HBox.hgrow="ALWAYS" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearForm" styleClass="btn, btn-warning" text="Cancelar" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <Separator />
+                        <VBox spacing="8.0">
+                           <children>
+                              <Label text="Actualizar estado del trámite">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblSeleccion" text="Seleccione una solicitud de la tabla" wrapText="true" />
+                              <ComboBox fx:id="cbxNuevoEstado" maxWidth="1.7976931348623157E308" promptText="Nuevo estado" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#actualizarEstado" styleClass="btn, btn-primary" text="Actualizar estado" />
+                           </children>
+                        </VBox>
+                        <Label fx:id="lbnMsg" maxWidth="1.7976931348623157E308" text="" wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </VBox>
+                  <TableView fx:id="tableView" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
